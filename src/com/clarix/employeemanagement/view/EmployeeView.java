@@ -116,36 +116,36 @@ public class EmployeeView {
         double salary = Double.parseDouble(validSalary);
 
         System.out.println("Enter the current address details");
-        System.out.print("Enter the door no: ");
-        String currentDoorNo = scanner.nextLine();
+        String currentDoorNo = getValidatedData(
+                "DOORNO", "Enter the doorNo: ");
 
-        System.out.print("Enter the street: ");
-        String currentStreet = scanner.nextLine();
+        String currentStreet = getValidatedData(
+                "STREET", "Enter the street: ");
 
-        System.out.print("Enter the city: ");
-        String currentCity = scanner.nextLine();
+        String currentCity = getValidatedData(
+                "CITY", "Enter the city: ");
 
-        System.out.print("Enter the pinCode: ");
-        int currentPinCode = scanner.nextInt();
-        scanner.nextLine();	
+        String currentAddressPincode = getValidatedData(
+                "PINCODE", "Enter pincode: ");
+        int currentPinCode = Integer.parseInt(currentAddressPincode);	
 
         Address currentAddress = getAddressController()
                 .addAddress(currentDoorNo, currentStreet, currentCity, 
                 currentPinCode);
 
         System.out.println("Enter the permanent address details");
-        System.out.print("Enter the door no: ");
-        String permanentDoorNo = scanner.nextLine();
+        String permanentDoorNo = getValidatedData(
+                "DOORNO", "Enter the doorNo: ");
 
-        System.out.print("Enter the street: ");
-        String permanentStreet = scanner.nextLine();
+        String permanentStreet = getValidatedData(
+                "STREET", "Enter the street: ");
 
-        System.out.print("Enter the city: ");
-        String permanentCity = scanner.nextLine();
+        String permanentCity = getValidatedData(
+                "CITY", "Enter the city: ");
 
-        System.out.print("Enter the pinCode: ");
-        int permanentPinCode = scanner.nextInt();
-        scanner.nextLine();
+        String permanentAddressPinCode = getValidatedData(
+                "PINCODE", "Enter pincode: ");
+        int permanentPinCode = Integer.parseInt(permanentAddressPinCode);
 
         Address permanentAddress = getAddressController()
                 .addAddress(permanentDoorNo, permanentStreet, permanentCity,
@@ -375,6 +375,18 @@ public class EmployeeView {
                 case "SALARY" -> getEmployeeController()
                         .validateSalary(userData);
 
+                case "DOORNO" -> getAddressController()
+                        .validateDoorNo(userData);
+
+                case "STREET" -> getAddressController()
+                        .validateStreet(userData);
+
+                case "CITY" -> getAddressController()
+                        .validateCity(userData);
+
+                case "PINCODE" -> getAddressController()
+                        .validatePinCode(userData);
+            
                 default -> "Invalid validation type";
                             
             };

@@ -79,4 +79,28 @@ public class AddressService {
 
         return updatedEmployee;
     }
+
+    public String validateDoorNo(String doorNo) {
+        return doorNo.matches("^[A-Za-z0-9]+([ /-][A-Za-z0-9]+)*$")
+                ? null
+                : "Invalid door no";
+    }
+
+    public String validateStreet(String street) {
+        return street.matches("^[A-Za-z0-9 .-]{1,50}$")
+                ? null
+                : "Invalid street name (Max 50 characters, only . - allowed)";
+    }
+
+    public String validateCity(String city) {
+        return city.matches("^[A-Za-z ]{1,50}$")
+                ? null
+                : "Invalid city name (Max 50 characters allowed)";
+    }
+
+    public String validatePinCode(String pinCode) {
+        return pinCode.matches("^[0-9]{1,6}$")
+                ? null
+                : "Invalid pincode (Max 6 digits allowed)";
+    }
 }
