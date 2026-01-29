@@ -62,4 +62,20 @@ public class AddressController {
 
         return updatedEmployee;
     }
+
+    public String validateDoorNo(String doorNo) {
+        return getAddressService().validateDoorNo(doorNo);
+    }
+
+    public String validateStreet(String street) {
+        return getAddressService().validateStreet(street);
+    }
+
+    public String validateCity(String city) {
+        return getAddressService().validateCity(city);
+    }
+
+    public String validatePinCode(String pinCode) {
+        return getAddressService().validatePinCode(pinCode);
+    }
 }
